@@ -1,0 +1,114 @@
+
+{% load static %}
+<html>
+<head>
+<style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans|Voltaire');
+</style>
+
+<script src="{% static 'crtools/js/tt_admin.js' %}"></script>
+<link href="{% static 'timetable/css/subscroll.css' %}" rel="stylesheet">
+<link href="{% static 'timetable/css/iframe_style.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.min.css' %}">
+
+</head>
+<body style="background-image: url({% static 'home/img/fav.png' %});">
+<form method="POST">
+    {% csrf_token %}
+<table id="tt_admin_table_1">
+    <tr>
+        <td colspan="3">
+            <h4 style="color: rgba(156, 19, 19, 0.836)"> {{ errortext }} </h4>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <br>
+        <label>Select Date: </label><input type="date" name="ttdate" min={{ today_set }} value={{ ttdate }}>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                    <br>
+                    <button name="can_sel"> Cancel Class </button>
+        </td>
+        <td>
+                <h5>(to Replace a class, cancel and add replacement)</h5>
+        </td>
+        <td>
+                <br>
+                <button name="add_sel"> Add Class </button>
+        </td>
+    </tr>
+    {% if add %}
+    <tr>
+            <td colspan="2">
+                <br>
+                <label>Select Class</label>
+                <select name="course_add_sel">
+                    {% for course in courses %}
+                    <option value= {{ course.course_code }}> {{ course.course_name }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <input type="checkbox" name="labconfadd" value="True"> Lab Hour<br>
+            </td>
+            <td>
+                <br>
+                <label>Select Hour</label>
+                <select name="hour_add_sel">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </td>
+            
+        </tr>
+    {% endif %}
+    {% if can %}
+    <tr>
+        <td colspan="3">
+            <br>
+            <label>Select Class</label>
+            <select name="class_select">
+                {% for c in day_class %}
+                <option value= {{ c.course_code.course_code }}  > {{ c.course_code.course_name }} {% if c.lab_hour %} - LAB {% endif %}</option>
+                {% endfor %}
+            </select>
+
+        </td>
+        
+    </tr>
+    {% endif %}
+    {% if can %}
+    <tr>
+        <td colspan="3">
+            <br> 
+            <button name="canclass">Cancel This Class</button>
+            
+        </td>
+    </tr>
+    {% endif %}
+    {% if add %}
+    <tr>
+        <td >
+            <br>
+            <button name="conchange">Confirm</button>
+        </td>
+        <td></td>
+        <td>
+            <br>
+            <button name="canchange">Cancel</button>
+        </td>
+    </tr>
+    {% endif %}
+</table>    
+</form>
+</body>
+
+</html>

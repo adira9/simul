@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | Simul</title>
+  <link rel="icon" type="image/ico" href="{% static 'home/img/fav.ico' %}"/>
+ 
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans|Voltaire');
+  </style>
+
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/style2.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.min.css' %}">
+  <link href="{% static 'timetable/css/scroll.css' %}" rel="stylesheet">
+
+  <script src="{% static 'home/js/jquery.min.js' %}"></script>
+  <script src="{% static 'home/js/bootstrap.bundle.min.js' %}"></script>
+
+
+</head>
+<body >
+    <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                <div><a href="{% url 'home:homepage' %}"><img id="main-logo" src="{% static 'home/img/logo.png' %}" height="90px"></a>
+                </div>
+            </div>
+            </div>
+            </nav>  
+
+          
+    <table id="login_table">
+        <tr>
+            <td id="image_col">
+                <img id="login_img" src="{% static 'home/img/fav.png' %}">
+            </td>
+            <td id="form_col">
+                <div class="container">
+                        <div class="row">
+                            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div class="card card-signin my-5">
+                                <div class="card-body">
+                                <h5 id="error_mess" class="card-title text-center"> {{ errormessage }} </h5> 
+                                <h5 class="card-title text-center">Sign In</h5>
+                                <form class="form-signin" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-label-group">
+                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="login_email" required autofocus>
+                                    <label for="inputEmail">Email address</label>
+                                    </div>
+                    
+                                    <div class="form-label-group">
+                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pwd_login" required>
+                                    <label for="inputPassword">Password </label>
+                                    </div>
+                    
+                                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                                    <hr class="my-4">
+                                    <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit" disabled>  <img class="icon_rep_small" src="{% static 'home/img/google.png' %}">  Sign in with Google</button>
+                                    <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit" disabled>  <img class="icon_rep_small" src="{% static 'home/img/facebook.png' %}">  Sign in with Facebook</button>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+            </td>
+        </tr>
+        </table>
+  </body>
+</html>

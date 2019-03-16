@@ -1,0 +1,171 @@
+*{
+    font-family: 'Open Sans', 'sans-serif';
+    margin:0px;
+    padding:0px;
+
+}
+
+p{
+    font-size: 20px;
+}
+
+table{
+    font-family: 'Voltaire', 'sans-serif';
+    width:100%;
+    text-align: center;
+    vertical-align:middle;
+}
+
+#date_check{
+    background:rgb(49, 49, 49);
+    border-radius: 5px;
+    border-color:rgb(255, 255, 255);
+    border-width: 2px;
+}
+
+#tt_main{
+    border-radius: 5px;
+    border: 1px dashed rgb(49, 49, 49);
+    padding: 40px;
+    width:1000px;
+}
+
+
+tr{
+    margin:0px;
+    padding:0px;
+}
+.date_block{
+    border-radius: 5px;
+    background: rgb(206, 205, 205);
+    height:100px;
+    width:100px;
+    vertical-align: middle;
+    margin:0px;
+}
+.date_block:hover{
+    background: rgb(178, 211, 168);
+    
+}
+
+
+.tt_img{
+    height:40px;
+    width:40px;
+    margin:0px;
+}
+
+.tt_img:hover{
+    height:50px;
+    width:50px;
+    transition-delay: 10ms;
+}
+
+.tt_block_lec{
+    border-radius: 2px;
+    background: rgb(206, 205, 205);
+    height:120px;
+    width:100;
+    vertical-align: middle;
+    margin:0px;
+}
+
+.tt_block_lab
+{
+    border-radius: 2px;
+    background:  rgb(206, 205, 205);
+    height:120px;
+    width:200;
+    vertical-align: middle;
+    margin:0px;
+}
+
+.tt_block_lab:hover,.tt_block_lec:hover{
+    background: rgb(178, 211, 168);   
+}
+
+#reminder_div{
+    border-radius: 5px;
+    border: 1px dashed rgb(49, 49, 49);
+    min-height:100px;
+    width:50%;
+    font-size:15px;
+    padding:20px;
+    margin:10px;
+}
+
+#bunk_button{
+    border-radius: 5px;
+    background: rgb(177, 177, 177);
+    height: 40px;
+    width:auto;
+    text-align: center;
+    font-size: 20px;
+    margin:10px;
+}
+
+#attendance_table
+{
+    vertical-align: middle;
+}
+#attendance_table > td {
+    margin:0px !important;
+    padding:0px;
+}
+
+#attendance_table > tr {
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin:0px;
+    padding:0px !important;
+}
+.progress
+{
+    margin-top:10px !important!;
+    width:50%;
+}
+
+.progress-bar
+{
+    background-color: rgb(118, 163, 118) !important;
+}
+
+#tt_admin_table_1{
+    text-align: center;
+    padding:20px;
+
+}
+
+#tt_admin_table_1 > tr,td{
+    text_align:center;
+    margin:10px;
+    padding:20px;
+
+
+}
+
+#view_rem {
+    width:100%;
+    text-align: center;
+}
+
+#rem_div{
+    width: 75%;
+}
+
+#rem_text{
+    width: 90%;
+    height:40px;
+}
+
+
+#tt_admin_table > tr {
+    text-align: center;
+    margin: 50px;
+}
+#tt_admin_table > td {
+    padding:20px;
+}
+.active{
+    background: rgb(126, 161, 117);
+}

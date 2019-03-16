@@ -1,0 +1,51 @@
+{% load static %}
+<style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans|Voltaire');
+</style>
+
+<link href="{% static 'timetable/css/subscroll.css' %}" rel="stylesheet">
+<link href="{% static 'timetable/css/iframe_style.css' %}" rel="stylesheet">
+
+<body style="background-image: url({% static 'home/img/fav.png' %});">
+    <h3> {{ day }} : {{ date }}</h3>
+    <br><hr><br>
+    <table id="tt_main">
+            <tr>
+                {% for class in classes_list %}
+                {% if class.lab_hour %}
+                <td><div class="tt_block_lab">
+                                <br>
+                                {{ class.course_code.course_code }}
+                                <br>
+                                {{ class.course_code.course_name }} LAB
+                                <br>
+                                Start hour: {{ class.start_hour }}
+                            </div></td>
+                {% else %}
+                <td><div class="tt_block_lec">
+                                <br>
+                                {{ class.course_code.course_code }}
+                                <br>
+                                {{ class.course_code.course_name }} LEC
+                                <br>
+                                Start hour: {{ class.start_hour }}
+                            </div></td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+        </table>
+    <br>
+    <h2>Reminders:</h2>
+    <div id="reminder_div">
+            {% for rem in reminders %}
+            <div class="rem_div">
+                    {{ rem.reminder_text }} 
+                    <hr>
+                </div>
+            {% endfor %}
+    </div>
+    
+    <a href="{% url 'timetable:db_attend' %}">
+    <button id="bunk_button" type="button">Manage Class Attendance</button>
+    </a>
+</body>

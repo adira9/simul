@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Simul</title>
+  <link rel="icon" type="image/ico" href="{% static 'home/img/fav.ico' %}"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans|Voltaire');
+  </style>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/imagehover.min.css' %}">
+  <link href="{% static 'timetable/css/scroll.css' %}" rel="stylesheet">
+
+  <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'home/js/custom.js' %}"></script>
+  <script src="{% static 'home/js/jquery.min.js' %}"></script>
+  <script src="{% static 'home/js/jquery.easing.min.js' %}"></script>
+
+</head>
+
+<body>
+  <!--Navigation bar-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div><a href="{% url 'home:homepage' %}"><img id="main-logo" src="{% static 'home/img/logo.png' %}" height="90px"></a></div>
+        </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#feature">About</a></li>
+          <li><a href="#contact">Register</a></li>
+          <li class="btn-trial"><a href="{% url 'home:login' %}" data-toggle="modal">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Navigation bar-->
+
+  </div>
+  <!--/ Modal box-->
+  <!--Banner-->
+  <div class="banner">
+    <div class="bg-color">
+      <div class="container">
+        <div class="row">
+          <div class="banner-text text-center">
+            <div class="text-border">
+              <img id="in_logo" src="{% static 'home/img/fav.png' %}" height="200px" width="auto"><br><h2 class="text-dec">Introducing<br>Simul</h2>
+            </div>
+            <div class="intro-para text-center quote">
+              <p class="big-text">Coordinate, Collaborate, and unComplicate College life</p>
+              <p class="small-text">Make college life easy with the complete solution to academic organization.<br>Built for students, by students.</p>
+              <a href="#feature" class="btn get-quote" id="tell_me">TELL ME MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Banner-->
+  <!--Feature-->
+  <section id="feature" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>About</h2>
+          <p>Simul is a one stop solution to collaborating efficiently with your classmates. From attendance, submissions and timetable updates, stay in sync and effortlessly communicate with your peers. Log in and get access to the multitude of resources and tools aimed to make your college life a breeze!</p>
+          <hr class="bottom-line">
+        </div>
+        <div class="feature-info">
+          <div class="fea">
+            <div class="col-md-4">
+              <div class="heading pull-right">
+                <h4>Synchronized Reminders</h4>
+                <p>Never forget an assignment or event again! Simul lets you create and synch reminders so you always show up on time to hand in that paper, or to get lunch with your classmates.</p>
+              </div>
+              <div class="fea-img pull-left">
+                  <img class="icon_rep_large" src="{% static 'home/img/rem.png' %}"> 
+              </div>
+            </div>
+          </div>
+          <div class="fea">
+            <div class="col-md-4">
+              <div class="heading pull-right">
+                <h4>Timetable Management</h4>
+                <p>Constantly confused by timetable updates and substitutions? Simul handles it for you with built in synchronized Timetables. Never miss a whatsapp message again!</p>
+              </div>
+              <div class="fea-img pull-left">
+                  <img class="icon_rep_large" src="{% static 'home/img/tt.png' %}">
+              </div>
+            </div>
+          </div>
+          <div class="fea">
+            <div class="col-md-4">
+              <div class="heading pull-right">
+                <h4>Attendance Tracker</h4>
+                <p> Lost track of how many classes weren't worth getting out of bed at 8 am for? With Simul's new attendance tracker, bunk away stress free, at least until you aren't in the danger zone
+                </p>
+              </div>
+              <div class="fea-img pull-left">
+                  <img class="icon_rep_large" src="{% static 'home/img/poll.png' %}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ feature-->
+   <!--Faculity member-->
+  <section id="faculity-member" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>Meet Our Team</h2>
+          <p>By students, For students.</p>
+          <hr class="bottom-line">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="pm-staff-profile-container">
+            <div class="pm-staff-profile-image-wrapper text-center">
+              <div class="pm-staff-profile-image">
+                <img src="{% static 'home/img/aditi.jpg' %}" alt="" class="img-thumbnail img-circle" />
+              </div>
+            </div>
+            <div class="pm-staff-profile-details text-center">
+              <p class="pm-staff-profile-name">Aditi Rao</p>
+              <p class="pm-staff-profile-title">Lead Software Engineer</p>
+
+              <p class="pm-staff-profile-bio">Aditi joined IT because she didn't really know what else to do with her life. Hopefully she will be able to pass and discover her true passions.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="pm-staff-profile-container">
+            <div class="pm-staff-profile-image-wrapper text-center">
+              <div class="pm-staff-profile-image">
+                <img src="{% static 'home/img/aditi.jpg' %}" alt="" class="img-thumbnail img-circle" />
+              </div>
+            </div>
+            <div class="pm-staff-profile-details text-center">
+              <p class="pm-staff-profile-name">Aditi Rao</p>
+              <p class="pm-staff-profile-title">Lead Designer</p>
+
+              <p class="pm-staff-profile-bio">Discovering her passions lay in the world of color and typography, as well as product design, she decided to give this a try.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="pm-staff-profile-container">
+            <div class="pm-staff-profile-image-wrapper text-center">
+              <div class="pm-staff-profile-image">
+                <img src="{% static 'home/img/aditi.jpg' %}" alt="" class="img-thumbnail img-circle" />
+              </div>
+            </div>
+            <div class="pm-staff-profile-details text-center">
+              <p class="pm-staff-profile-name">Aditi Rao</p>
+              <p class="pm-staff-profile-title">Lead Content Creator</p>
+
+              <p class="pm-staff-profile-bio">Being a writer and overburdened college student has its perks. All the wonderfully snarky text you see here was also developed by yours truly. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Faculity member-->
+  <!--Testimonial-->
+  <section id="testimonial" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2 class="white">Students Speak: Simul</h2>
+          <p class="white">See how our "By students: For students" system holds up in colleges across the country</p>
+          <hr class="bottom-line bg-white">
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="text-comment">
+            <p class="text-par">"Made it to every class this semester and didn't miss a single assignment! Thanks!</p>
+            <p class="text-name">Lazy Student 1 - NITK</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="text-comment">
+            <p class="text-par">"The only thing missing is a way to show our professors that their class isn't the only one we're taking....."</p>
+            <p class="text-name">Sulky Student - NITK</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Testimonial-->
+ 
+  <!--Contact-->
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+          <h2>Register</h2>
+          <p>Leave us a message and we'll get back to you to help set up Simul in your classroom</p>
+          <hr class="bottom-line">
+        </div>
+        <div id="sendmessage">Your message has been sent. Thank you!</div>
+        <div id="errormessage"></div>
+        <form action="" method="post" role="form" class="contactForm">
+          <div class="col-md-6 col-sm-6 col-xs-12 left">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control form" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validation"></div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 right">
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <!-- Button -->
+            <button type="submit" id="submit" name="submit" class="form contact-form-button light-form-button oswald light">SEND EMAIL</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+  <!--/ Contact-->
+  <!--Footer-->
+  <footer id="footer" class="footer">
+    <div class="container text-center">
+      <!-- End newsletter-form -->
+      <ul class="social-links">
+        <li>Simul 2019 - HCI assignment</li>
+      </ul>
+      <div class="credits">
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

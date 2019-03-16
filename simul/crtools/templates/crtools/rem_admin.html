@@ -1,0 +1,76 @@
+
+{% load static %}
+<html>
+<head>
+<style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans|Voltaire');
+</style>
+
+<link href="{% static 'timetable/css/subscroll.css' %}" rel="stylesheet">
+<link href="{% static 'timetable/css/iframe_style.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.min.css' %}">
+
+</head>
+<body  onload="date_setter" style="background-image: url({% static 'home/img/fav.png' %});">
+<form method="POST">
+    {% csrf_token %}
+<table id="tt_admin_table">
+    <tr>
+        <td colspan="2">
+                <br>
+        <label>Select Date</label><input type="date" name="seldate" value={{ seldate }}>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                <br>
+            <button name="viewr" value="viewr"> View Reminders </button>
+        </td>
+        <td>
+                <br>
+            <button name="addrem" value="addrem"> Add Reminder</button>
+        </td>
+    </tr>
+    {% if view_rem %}
+    <tr >
+        <td colspan="2">
+            <label>Reminders:</label>
+            <div id="view_rem">
+                {% for rem in rl %}
+                <div class="rem_div">
+                    <hr>
+                    {{ rem.reminder_text }} 
+                    <br>
+                    <button name="rem_del" value={{rem.id }}>Delete Reminder</button>
+                    <hr>
+                </div>
+                {% endfor %}
+            </div>
+        </td>
+    </tr>
+    {% endif %}
+    {% if addrem %}
+    <tr id="add_rem" >
+            <td colspan="2"> 
+                    <br>
+                <label>Type Reminder text here:</label><br>
+                <textarea id="rem_text" name="rem_text_stuff"></textarea>
+            </td>
+        </tr>
+        <tr>
+            
+            <td>
+                <br>
+                <button name="rem_con">Confirm</button>
+                </td>
+                <td>
+                        <br>
+                <button name="rem_can">Cancel</button>
+            </td>
+        </tr>
+    {% endif %}
+</table>    
+</form>
+</body>
+<script src="{% static 'crtools/js/tt_admin.js' %}"></script>
+</html>
