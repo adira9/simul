@@ -112,23 +112,23 @@ def db_attend(request):
     userid=request.session.get('userid')
     if userid is None:
         return redirect(reverse('home:homepage'))
-    
+    student=Student.objects.get(rollno=userid)
     courses=Enrolled.objects.filter(student_id=userid)
 
     if request.method=='POST':
         if 'bunk' in request.POST:
-            course_changed=Enrolled.objects.get(course_code=request.POST['bunk'])
+            course_changed=Enrolled.objects.get(course_code=request.POST['bunk'],student_id=student)
             if course_changed.classes_bunked<course_changed.course_code.num_classes:
                 course_changed.classes_bunked+=1
             course_changed.save()
         else:
-            course_changed=Enrolled.objects.get(course_code=request.POST['unbunk'])
+            course_changed=Enrolled.objects.get(course_code=request.POST['unbunk'],student_id=student)
             if course_changed.classes_bunked>0:
                 course_changed.classes_bunked-=1
             course_changed.save()
     
     for course in courses:
-        course.bunk_percentage=((course.course_code.num_classes-course.classes_bunked)/course.course_code.num_classes)*100.0
+        course.bunk_percentage=((course.course_code.num_classes-course.official_classes_bunked)/course.course_code.num_classes)*100.0
         course.save()
     context={
         'username':username,

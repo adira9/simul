@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'home',
     'timetable',
     'crtools',
+    'teacher',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

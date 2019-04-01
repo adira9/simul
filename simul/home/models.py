@@ -11,5 +11,6 @@ class Student(models.Model):
     semester=models.IntegerField()
     last_online=models.DateField(auto_now=True)
     cr=models.BooleanField()
+    dev_id=models.CharField(max_length=40)
 
 # Create your models here.

@@ -20,5 +20,6 @@ urlpatterns = [
     path('',include('home.urls')),
     path('dashboard/',include('timetable.urls')),
     path('crtools/',include('crtools.urls')),
+    path('teacher/',include('teacher.urls')),
     path('admin/', admin.site.urls),
 ]

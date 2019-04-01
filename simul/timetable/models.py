@@ -1,8 +1,8 @@
 from django.db import models
 from home.models import Student
+from teacher.models import TeacherAcc
 
 class Course(models.Model):
-    
     course_name=models.CharField(max_length=40)
     class_id=models.CharField(max_length=10)
     course_code=models.CharField(max_length=10)
@@ -12,12 +12,14 @@ class Course(models.Model):
     lectures=models.IntegerField(default=0)
     labs=models.IntegerField(default=0)
     num_classes=models.IntegerField(default=1)
+    teacher=models.ForeignKey(TeacherAcc,on_delete=models.SET(0))
 
 class Enrolled(models.Model):
     student_id=models.ForeignKey(Student,on_delete=models.CASCADE)
     course_code=models.ForeignKey(Course,on_delete=models.CASCADE)
     classes_bunked=models.IntegerField(default=0)
     bunk_percentage=models.FloatField(default=0)
+    official_classes_bunked=models.IntegerField(default=0)
 
 class TTFormat(models.Model):
     course_code=models.ForeignKey(Course,on_delete=models.CASCADE)
